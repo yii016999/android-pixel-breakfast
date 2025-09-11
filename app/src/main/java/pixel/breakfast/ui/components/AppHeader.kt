@@ -20,7 +20,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.me.breakfast.R
+import pixel.breakfast.R
 
 @Composable
 fun AppHeader(
@@ -34,7 +34,7 @@ fun AppHeader(
             .padding(vertical = dimensionResource(R.dimen.app_header_padding)),
         contentAlignment = Alignment.Center,
     ) {
-        // ====== left back button ======
+        // ============ left back button ============
         IconButton(
             modifier = Modifier.align(Alignment.CenterStart),
             onClick = onBackClick
@@ -46,7 +46,7 @@ fun AppHeader(
             )
         }
 
-        // ====== center title ======
+        // ============ center title ============
         Text(
             text = title,
             style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)

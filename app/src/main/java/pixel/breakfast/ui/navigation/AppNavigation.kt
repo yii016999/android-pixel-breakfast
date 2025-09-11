@@ -12,8 +12,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.me.breakfast.R
+import pixel.breakfast.R
 import pixel.breakfast.ui.components.AppHeader
+import pixel.breakfast.ui.components.HomeHeader
 import pixel.breakfast.ui.screen.home.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,7 +30,7 @@ fun AppNavigation() {
         // ====== top bar ======
         topBar = {
             when (currentRoute) {
-                Routes.HOME -> {}
+                Routes.HOME -> HomeHeader("John")
                 Routes.CART, Routes.COUPON, Routes.ORDERS -> {
                     AppHeader(
                         title = when (currentRoute) {
@@ -41,6 +42,7 @@ fun AppNavigation() {
                         onBackClick = { navController.popBackStack() }
                     )
                 }
+
                 else -> Unit
             }
         },

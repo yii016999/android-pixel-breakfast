@@ -12,11 +12,15 @@
     <string name="cart_screen_empty">購物車空空如也</string>
     <string name="cart_screen_button_submit">送出訂單</string>
 
-    <!-- CAT MenuItem Category -->
+    <!-- CAT Component MenuItem Category -->
     <string name="menu_item_category_set">套餐</string>
     <string name="menu_item_category_egg">蛋餅</string>
     <string name="menu_item_category_burger">漢堡</string>
     <string name="menu_item_category_toast">現烤土司</string>
     <string name="menu_item_category_sandwich">三明治</string>
     <string name="menu_item_category_drink">飲料</string>
+
+    <!-- CAT Component HomeHeader -->
+    <string name="home_header_greeting">Hi %1$s</string>
+    <string name="home_header_greeting_morning">早安，今天想吃什麼?</string>
 </resources>

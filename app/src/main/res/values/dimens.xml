@@ -3,4 +3,12 @@
     <!-- CAT Component AppHeader -->
     <dimen name="app_header_padding">12dp</dimen>
     <dimen name="app_header_back_icon_size">20dp</dimen>
+
+    <!-- CAT Component HomeHeader -->
+    <dimen name="home_header_padding_vertical">12dp</dimen>
+    <dimen name="home_header_padding_horizontal">16dp</dimen>
+    <dimen name="home_header_padding_end">12dp</dimen>
+    <dimen name="home_header_back_icon_size">20dp</dimen>
+    <dimen name="home_header_greeting_spacer">2dp</dimen>
+    <dimen name="home_header_img_size">44dp</dimen>
 </resources>

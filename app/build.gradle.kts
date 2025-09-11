@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace = "com.me.breakfast"
+    namespace = "pixel.breakfast"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.me.breakfast"
+        applicationId = "pixel.breakfast"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
