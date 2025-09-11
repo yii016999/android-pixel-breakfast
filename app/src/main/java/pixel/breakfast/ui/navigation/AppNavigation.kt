@@ -6,11 +6,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.me.breakfast.R
+import pixel.breakfast.ui.components.AppHeader
 import pixel.breakfast.ui.screen.home.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,7 +30,17 @@ fun AppNavigation() {
         topBar = {
             when (currentRoute) {
                 Routes.HOME -> {}
-                Routes.CART, Routes.COUPON, Routes.ORDERS -> {}
+                Routes.CART, Routes.COUPON, Routes.ORDERS -> {
+                    AppHeader(
+                        title = when (currentRoute) {
+                            Routes.CART -> stringResource(R.string.cart_screen_title)
+                            Routes.COUPON -> "優惠券"
+                            Routes.ORDERS -> "訂單"
+                            else -> ""
+                        },
+                        onBackClick = { navController.popBackStack() }
+                    )
+                }
                 else -> Unit
             }
         },

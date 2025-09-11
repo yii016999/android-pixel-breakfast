@@ -1,3 +1,22 @@
 <resources>
+    <!-- CAT Common -->
     <string name="app_name">Pixel Breakfast</string>
+
+    <!-- CAT Home Screen -->
+    <string name="home_screen_title">首頁</string>
+
+    <!-- CAT Cart Screen -->
+    <string name="cart_screen_title">購物車</string>
+    <string name="cart_screen_total">總計</string>
+    <string name="cart_screen_price">$</string>
+    <string name="cart_screen_empty">購物車空空如也</string>
+    <string name="cart_screen_button_submit">送出訂單</string>
+
+    <!-- CAT MenuItem Category -->
+    <string name="menu_item_category_set">套餐</string>
+    <string name="menu_item_category_egg">蛋餅</string>
+    <string name="menu_item_category_burger">漢堡</string>
+    <string name="menu_item_category_toast">現烤土司</string>
+    <string name="menu_item_category_sandwich">三明治</string>
+    <string name="menu_item_category_drink">飲料</string>
 </resources>
