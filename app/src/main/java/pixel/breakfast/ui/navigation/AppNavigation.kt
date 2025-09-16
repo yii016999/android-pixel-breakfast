@@ -58,7 +58,10 @@ fun AppNavigation() {
             composable(Routes.HOME) {
                 val homeVm: HomeViewModel = hiltViewModel()
                 val homeState by homeVm.uiState.collectAsStateWithLifecycle()
-                HomeScreen(state = homeState)
+                HomeScreen(
+                    state = homeState,
+                    onCategoryClick = homeVm::onCategoryClick
+                )
             }
 
             composable(Routes.CART) {}

@@ -31,12 +31,14 @@ android {
             }
         }
 
-        val supabaseUrl = (localProps.getProperty("SUPABASE_URL") ?: "").escapeForBuildConfig()
-        val supabaseAnonKey = (localProps.getProperty("SUPABASE_ANON_KEY") ?: "").escapeForBuildConfig()
+        val supabaseUrl = (localProps.getProperty("SUPABASE_URL") ?: System.getenv("SUPABASE_URL") ?: "").escapeForBuildConfig()
+        val supabaseAnonKey = (localProps.getProperty("SUPABASE_ANON_KEY") ?: System.getenv("SUPABASE_ANON_KEY") ?: "").escapeForBuildConfig()
+        val supabaseBucketMenu = (localProps.getProperty("SUPABASE_BUCKET_MENU") ?: System.getenv("SUPABASE_BUCKET_MENU") ?: "menu").escapeForBuildConfig()
 
         // Export BuildConfig
         buildConfigField("String", "SUPABASE_URL", "\"$supabaseUrl\"")
         buildConfigField("String", "SUPABASE_ANON_KEY", "\"$supabaseAnonKey\"")
+        buildConfigField("String", "SUPABASE_BUCKET_MENU", "\"$supabaseBucketMenu\"")
     }
 
     buildTypes {

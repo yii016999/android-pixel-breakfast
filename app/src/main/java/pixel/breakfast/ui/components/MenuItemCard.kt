@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,7 +52,7 @@ fun MenuItemCard(
         ) {
             // ============ title ============
             Text(
-                text = item.displayName,
+                text = stringResource(item.titleRes),
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -103,7 +104,7 @@ private fun PreviewMenuItemCard() {
             item = MenuItem(
                 id = "set-001",
                 category = MenuCategoryEnum.SET,
-                displayName = "測試商品名稱",
+                titleRes = R.string.menu_unknown,
                 price = 10,
                 imageUrl = ""
             ),

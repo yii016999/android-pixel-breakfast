@@ -21,6 +21,7 @@
     <string name="menu_item_category_drink">飲料</string>
 
     <!-- CAT Component MenuItem -->
+    <string name="menu_unknown">UNKNOWN</string>
     <string name="menu_set_001">美式A餐</string>
     <string name="menu_set_002">美式B餐</string>
     <string name="menu_set_003">美式C餐</string>

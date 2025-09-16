@@ -11,4 +11,10 @@
     <dimen name="home_header_back_icon_size">20dp</dimen>
     <dimen name="home_header_greeting_spacer">2dp</dimen>
     <dimen name="home_header_img_size">44dp</dimen>
+
+    <!-- CAT HomeScreen -->
+    <dimen name="home_screen_category_padding_vertical">24dp</dimen>
+    <dimen name="home_screen_items_padding_horizontal">12dp</dimen>
+    <dimen name="home_screen_items_space">12dp</dimen>
+    <dimen name="home_screen_bottom_padding">30dp</dimen>
 </resources>

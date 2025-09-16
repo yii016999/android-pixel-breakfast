@@ -8,6 +8,6 @@ import kotlinx.serialization.Serializable
 data class MenuItemResp(
     @SerialName("id") val id: String,
     @SerialName("category") val category: String,
-    @SerialName("price") val price: Int,
+    @SerialName("price") val price: Double,
     @SerialName("img_res") val imgRes: String,
 )

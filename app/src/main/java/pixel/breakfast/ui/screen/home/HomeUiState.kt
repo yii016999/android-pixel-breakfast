@@ -14,5 +14,8 @@ data class HomeUiState(
     // ---- cat state ----
     val selectedCategory: MenuCategoryEnum = MenuCategoryEnum.SET,      // When user selects a category
     val categories: List<MenuCategoryEnum> = MenuCategoryEnum.entries,  // All meal categories
+
+    // ---- data ----
     val items: List<MenuItem> = emptyList(),                            // All meal items
+    val visibleItems: List<MenuItem> = emptyList(),                     // Filtered meal items
 )

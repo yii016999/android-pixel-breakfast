@@ -6,7 +6,7 @@ import pixel.breakfast.domain.model.enum.MenuCategoryEnum
 data class MenuItem(
     val id: String,
     val category: MenuCategoryEnum,
-    val displayName : String,
+    @StringRes val titleRes: Int,
     val price: Int,
     val imageUrl: String?
 )
