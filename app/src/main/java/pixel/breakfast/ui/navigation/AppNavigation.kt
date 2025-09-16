@@ -8,6 +8,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -16,6 +18,7 @@ import pixel.breakfast.R
 import pixel.breakfast.ui.components.AppHeader
 import pixel.breakfast.ui.components.HomeHeader
 import pixel.breakfast.ui.screen.home.HomeScreen
+import pixel.breakfast.ui.screen.home.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,7 +56,9 @@ fun AppNavigation() {
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(Routes.HOME) {
-                HomeScreen()
+                val homeVm: HomeViewModel = hiltViewModel()
+                val homeState by homeVm.uiState.collectAsStateWithLifecycle()
+                HomeScreen(state = homeState)
             }
 
             composable(Routes.CART) {}

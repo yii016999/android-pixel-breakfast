@@ -1,12 +1,13 @@
-import com.google.protobuf.gradle.GenerateProtoTask
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.protobuf)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.protobuf)
 }
 
 android {
@@ -21,6 +22,21 @@ android {
         versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Reading local.properties
+        val localProps = Properties().apply {
+            val localFile = rootProject.file("local.properties")
+            if (localFile.exists()) {
+                load(localFile.inputStream())
+            }
+        }
+
+        val supabaseUrl = (localProps.getProperty("SUPABASE_URL") ?: "").escapeForBuildConfig()
+        val supabaseAnonKey = (localProps.getProperty("SUPABASE_ANON_KEY") ?: "").escapeForBuildConfig()
+
+        // Export BuildConfig
+        buildConfigField("String", "SUPABASE_URL", "\"$supabaseUrl\"")
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"$supabaseAnonKey\"")
     }
 
     buildTypes {
@@ -29,14 +45,18 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
     }
+
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -64,6 +84,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.coil.compose)
 
     // --- Navigation ---
     implementation(libs.navigation.compose)
@@ -76,6 +97,11 @@ dependencies {
     // --- Network ---
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
+    implementation(libs.retrofit)
+
+    // kotlinx.serialization with Retrofit converter
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.kotlinx.serialization.converter)
 
     // --- Testing ---
     testImplementation(libs.junit)
@@ -92,3 +118,5 @@ dependencies {
     implementation(libs.androidx.datastore)
     implementation(libs.protobuf.javalite)
 }
+
+fun String.escapeForBuildConfig(): String = this.replace("\\", "\\\\").replace("\"", "\\\"")
